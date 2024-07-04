@@ -7,15 +7,11 @@ import Right from "./components/right"
 
 const Layout = () => {
     return (
-        <Stack
-            screenOptions={{
-                headerShown : false
-            }}
-        >
+        <Stack>
             <Stack.Screen 
                 name="index"
                 options={{
-                    title : 'Logging',
+                    title : 'Suggestions',
                     headerBlurEffect : 'regular',
                     headerTransparent : true,
                     headerLargeTitle : true,
@@ -26,7 +22,6 @@ const Layout = () => {
                       backgroundColor : `${theme.colors.bg.primary}${hexOpacity(50)}`
                     },
                     headerRight : ()=><Right />,
-                    headerLeft : ()=><Profile size={30}/>
                 }}
             />
         </Stack>

@@ -1,9 +1,12 @@
-import { optionsTypes } from '@/components/settings/option';
-import theme from '@/styles/theme';
-import { Entypo } from '@expo/vector-icons';
-import { Redirect } from 'expo-router';
-import { allLogs } from './suggestions/components/logs';
+
 import Safescroll from '@/components/safeScroll/safescroll';
+import { Entypo } from '@expo/vector-icons';
+import theme from '@/styles/theme';
+import Segment from './components/segment';
+import Group from '@/components/settings/group';
+import { optionsTypes } from '@/components/settings/option';
+import { allLogs } from './components/logs';
+import { Redirect } from 'expo-router';
 
 export default function HomeScreen() {
   const options : optionsTypes[] = [
@@ -21,10 +24,12 @@ export default function HomeScreen() {
       }
   ]
   return (
-    allLogs.length <= 0 ?
-    <Redirect href='nologs' />
-    :
     <Safescroll>
+      <Group 
+        options={options}
+      />
+      <Segment />
+      <Segment />
     </Safescroll>
   );
 }

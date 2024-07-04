@@ -15,7 +15,7 @@ const Safescroll = ({
                 <Flex
                     direction="column"
                     paddingVertical={15}
-                    paddingHorizontal={15}
+                    paddingHorizontal={10}
                     gap={15}
                 >
                     { children }

@@ -67,6 +67,16 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="nologs"
+        options={{
+          title : 'No Logs',
+          href : null,
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          ),
+        }}
+      />
       {/* 
       <Tabs.Screen
         name="settings"
