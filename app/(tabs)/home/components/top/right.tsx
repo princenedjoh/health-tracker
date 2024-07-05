@@ -8,6 +8,7 @@ import theme from "@/styles/theme"
 import { hexOpacity } from "@/utils/hexOpacity"
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons"
 import { LinearGradient } from "expo-linear-gradient"
+import { router } from "expo-router"
 import { View } from "react-native"
 
 const Right = () => {
@@ -85,8 +86,9 @@ const Right = () => {
                         style={{
                             backgroundColor : `#007AFF${hexOpacity(15)}`
                         }}
+                        onPress={()=>router.navigate('home/details')}
                     >
-                        New Entry +
+                        See more...
                     </Button>
             </Flex>
         </LinearGradient>

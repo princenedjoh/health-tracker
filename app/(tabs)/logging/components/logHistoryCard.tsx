@@ -2,6 +2,7 @@ import AppTypography from "@/styles/components/appTypography"
 import Flex from "@/styles/components/flex"
 import { TypographyBold } from "@/styles/components/types"
 import theme from "@/styles/theme"
+import { router } from "expo-router"
 import { TouchableOpacity, View } from "react-native"
 
 const LogHistoryCard = ({
@@ -24,7 +25,9 @@ const LogHistoryCard = ({
         },
     ]
     return (
-        <TouchableOpacity>
+        <TouchableOpacity
+            onPress={()=>router.navigate('logging/view log')}
+        >
             <Flex
                 direction='column'
                 gap={10}

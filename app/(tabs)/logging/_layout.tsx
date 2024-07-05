@@ -6,6 +6,7 @@ import Profile from "@/components/profile/profile"
 import Right from "./components/right"
 import EntryRight from "./entry/components/right"
 import SuggestionsRight from "./suggestions/components/right"
+import ViewLogRight from "./view log/components/right"
 
 const Layout = () => {
     return (
@@ -64,6 +65,24 @@ const Layout = () => {
                       backgroundColor : `${theme.colors.bg.primary}${hexOpacity(50)}`
                     },
                     headerRight : ()=><SuggestionsRight />,
+                }}
+            />
+            <Stack.Screen 
+                name="view log"
+                options={{
+                    title : 'Log',
+                    headerBlurEffect : 'regular',
+                    headerTransparent : true,
+                    presentation : 'formSheet',
+                    headerShown : true,
+                    headerLargeTitle : false,
+                    headerLargeTitleStyle : {
+                        fontSize : 25
+                    },
+                    headerStyle : {
+                      backgroundColor : `${theme.colors.bg.primary}${hexOpacity(50)}`
+                    },
+                    headerRight : ()=><ViewLogRight />,
                 }}
             />
         </Stack>

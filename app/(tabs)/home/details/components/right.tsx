@@ -6,20 +6,18 @@ import Flex from "@/styles/components/flex"
 import { TypographyBold, TypographySize } from "@/styles/components/types"
 import theme from "@/styles/theme"
 import { hexOpacity } from "@/utils/hexOpacity"
-import { FontAwesome } from "@expo/vector-icons"
+import { FontAwesome, FontAwesome5 } from "@expo/vector-icons"
 import { LinearGradient } from "expo-linear-gradient"
-import { router } from "expo-router"
 import { View } from "react-native"
 
-const Left = () => {
+const Right = () => {
     return (
         <LinearGradient
-            colors={[`#4b2c2a`, `${theme.colors.bg.primary}`]}
+            colors={[`${theme.colors.bg.primary}`, `#07181c`]}
             style={{
                 flex : 1,
                 backgroundColor : 'red',
                 padding : 10,
-                height : 340,
                 borderRadius : 10,
                 position : 'relative'
             }}
@@ -27,17 +25,18 @@ const Left = () => {
             <View
                 style={{
                     position : 'absolute',
-                    width : '100%',
-                    top : 25,
-                    right : 10,
-                    opacity : 0.7
+                    bottom : -10,
+                    right : -10,
+                    zIndex : -1
                 }}
             >
-                <ImageBG
-                    source={images.heart3D}
-                    width={200}
-                    height={200}
-                    resizeMode="contain"
+                <FontAwesome5
+                    name="running"
+                    color={`${theme.colors.text.tetiary}${hexOpacity(10)}`}
+                    size={100}
+                    style={{
+                        marginTop : 1,
+                    }}
                 />
             </View>
             <Flex
@@ -47,12 +46,13 @@ const Left = () => {
             >
                 <Flex
                     direction="column"
+                    gap={8}
                 >
                     <Flex
                         align="center"
                     >
-                        <FontAwesome
-                            name="heartbeat"
+                        <FontAwesome5
+                            name="running"
                             color={theme.colors.text.secondary}
                             style={{
                                 marginTop : 1
@@ -61,40 +61,35 @@ const Left = () => {
                         <AppTypography
                             bold={TypographyBold.md}
                         >
-                            Heart Beat
+                            Running
                         </AppTypography>
                     </Flex>
                     <Flex
-                        align="center"
+                        direction="column"
+                        gap={1}
                     >
                         <Title
                             size={TypographySize.lg}
                         >
-                            70 BPM
+                            500 km
                         </Title>
+                        <AppTypography
+                            textColor={theme.colors.text.tetiary}
+                        >
+                            20 m/s
+                        </AppTypography>
                     </Flex>
                 </Flex>
-                <Flex
-                    direction="column"
-                    gap={10}
-                >
-                    <AppTypography>
-                        molestiae quas vel sint 
-                        consequuntur kdsj numquam blanditiis ajd 
-                        fugiat iusto fuga roe
-                    </AppTypography>
                     <Button
                         paddingVertical={12}
                         style={{
                             backgroundColor : `#007AFF${hexOpacity(15)}`
                         }}
-                        onPress={()=>router.navigate('home/details')}
                     >
                         See more...
                     </Button>
-                </Flex>
             </Flex>
         </LinearGradient>
     )
 }
-export default Left
+export default Right

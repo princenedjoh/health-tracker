@@ -7,7 +7,7 @@ import { FontAwesome6, MaterialCommunityIcons, Octicons } from "@expo/vector-ico
 import { router } from "expo-router"
 import { TouchableOpacity } from "react-native"
 
-const EntryRight = () => {
+const ViewLogRight = () => {
     return (
         <Flex
             width={'auto'}
@@ -15,25 +15,11 @@ const EntryRight = () => {
             gap={4}
         >
             <Button
-                onPress={()=>router.navigate('logging')}
+                onPress={()=>router.navigate('logging/entry')}
             >
-                Save
+                Edit
             </Button>
-            <TouchableOpacity>
-                <Flex
-                    align="center"
-                >
-                    <MaterialCommunityIcons 
-                        name="delete" 
-                        color={theme.colors.text.secondary}
-                        size={20}
-                    />
-                    <AppTypography>
-                        Clear
-                    </AppTypography>
-                </Flex>
-            </TouchableOpacity>
         </Flex>
     )
 }
-export default EntryRight
+export default ViewLogRight

@@ -5,6 +5,7 @@ import Flex from "@/styles/components/flex"
 import theme from "@/styles/theme"
 import { Entypo, FontAwesome5 } from "@expo/vector-icons"
 import Right from "./top/right"
+import { router } from "expo-router"
 
 const Description = () => {
     const options : optionsTypes[] = [
@@ -17,6 +18,7 @@ const Description = () => {
                     marginTop : 1
                 }}
             />,
+            onPress : ()=>router.navigate('home/details'),
             right : (
                 <Flex
                     width={'auto'}

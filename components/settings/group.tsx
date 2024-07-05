@@ -14,12 +14,16 @@ const Group = ({
     options,
     title,
     description,
+    paddingHorizontal,
+    paddingLeft
 } : {
     style? : StyleProp<ViewStyle>,
     options? : optionsTypes[],
     children? : ReactNode,
     title? : string,
     description? : string,
+    paddingHorizontal? : number,
+    paddingLeft? : number
 }) => {
     const [ioptions, setOptions] = useState([1,2,3])
 
@@ -62,8 +66,8 @@ const Group = ({
                                 key={index}
                             >
                                 <Flex
-                                    paddingHorizontal={sizes.marginSM}
-                                    paddingLeft={sizes.marginSM + 5}
+                                    paddingHorizontal={paddingHorizontal ?? sizes.marginSM}
+                                    paddingLeft={paddingLeft ?? sizes.marginSM + 5}
                                 >
                                     <Option
                                         {...item}
