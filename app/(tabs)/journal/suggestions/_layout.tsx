@@ -7,7 +7,11 @@ import Right from "./components/right"
 
 const Layout = () => {
     return (
-        <Stack>
+        <Stack
+            screenOptions={{
+                headerShown : false
+            }}
+        >
             <Stack.Screen 
                 name="index"
                 options={{

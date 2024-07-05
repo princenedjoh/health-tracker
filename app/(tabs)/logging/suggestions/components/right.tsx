@@ -6,14 +6,16 @@ import { Octicons } from "@expo/vector-icons"
 import { router } from "expo-router"
 import { TouchableOpacity } from "react-native"
 
-const Right = () => {
+const SuggestionsRight = () => {
     return (
         <Flex
             width={'auto'}
             align="center"
             gap={12}
         >
-            <Button>
+            <Button
+                onPress={()=>router.push('logging/entry')}
+            >
                 Add +
             </Button>
             <TouchableOpacity
@@ -28,4 +30,4 @@ const Right = () => {
         </Flex>
     )
 }
-export default Right
+export default SuggestionsRight

@@ -7,23 +7,12 @@ import Right from "./components/right"
 
 const Layout = () => {
     return (
-        <Stack>
-            <Stack.Screen 
-                name="index"
-                options={{
-                    title : 'Journal Entry',
-                    headerBlurEffect : 'regular',
-                    headerTransparent : true,
-                    headerLargeTitle : true,
-                    headerLargeTitleStyle : {
-                        fontSize : 25
-                    },
-                    headerStyle : {
-                      backgroundColor : `${theme.colors.bg.primary}${hexOpacity(50)}`
-                    },
-                    headerRight : ()=><Right />,
-                }}
-            />
+        <Stack
+            screenOptions={{
+                headerShown : false
+            }}
+        >
+
         </Stack>
     )
 }
