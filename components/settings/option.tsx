@@ -27,7 +27,6 @@ const Option = ({
             <Flex
                 justify="space-between"
                 align="center"
-                paddingVertical={15}
             >
                 <Flex
                     width={'auto'}

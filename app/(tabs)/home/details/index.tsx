@@ -11,20 +11,21 @@ import { FontAwesome } from "@expo/vector-icons"
 import { TypographyBold } from "@/styles/components/types"
 import Average from "./components/average"
 import Calculate from "./components/calculate"
+import Chart from "./components/chart"
+import { hexOpacity } from "@/utils/hexOpacity"
 
 const Details = () => {
     return (
         <Safescroll>
-            <View
-                style={{
-                    height : 300,
-                    width : '100%',
-                    backgroundColor : theme.colors.bg.secondary,
-                    borderRadius : 10
-                }}
+            <Flex
+                justify="center"
+                background={`${theme.colors.bg.secondary}${hexOpacity(50)}`}
+                padding={10}
+                paddingVertical={15}
+                rounded={10}
             >
-
-            </View>
+                <Chart />
+            </Flex>
             <Dates />
             <Average />
             <Calculate />

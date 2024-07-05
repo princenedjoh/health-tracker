@@ -52,11 +52,12 @@ const Average = () => {
             options={options}
             paddingLeft={10}
             paddingHorizontal={10}
+            paddingVertical={9}
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit.
 Maxime mollitia,molestiae quas vel sint commodi 
 repudiandae consequuntur voluptatum laborum"
             style={{
-                borderRadius : 15
+                borderRadius : 13
             }}
         />
     )

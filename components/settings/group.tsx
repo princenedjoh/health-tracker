@@ -15,7 +15,8 @@ const Group = ({
     title,
     description,
     paddingHorizontal,
-    paddingLeft
+    paddingLeft,
+    paddingVertical
 } : {
     style? : StyleProp<ViewStyle>,
     options? : optionsTypes[],
@@ -23,7 +24,8 @@ const Group = ({
     title? : string,
     description? : string,
     paddingHorizontal? : number,
-    paddingLeft? : number
+    paddingLeft? : number,
+    paddingVertical? : number
 }) => {
     const [ioptions, setOptions] = useState([1,2,3])
 
@@ -68,6 +70,7 @@ const Group = ({
                                 <Flex
                                     paddingHorizontal={paddingHorizontal ?? sizes.marginSM}
                                     paddingLeft={paddingLeft ?? sizes.marginSM + 5}
+                                    paddingVertical={paddingVertical ?? sizes.marginSM}
                                 >
                                     <Option
                                         {...item}
