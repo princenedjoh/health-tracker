@@ -7,7 +7,7 @@ import { FontAwesome6, MaterialCommunityIcons, Octicons } from "@expo/vector-ico
 import { router } from "expo-router"
 import { TouchableOpacity } from "react-native"
 
-const Right = () => {
+const EntryRight = () => {
     return (
         <Flex
             width={'auto'}
@@ -34,4 +34,4 @@ const Right = () => {
         </Flex>
     )
 }
-export default Right
+export default EntryRight

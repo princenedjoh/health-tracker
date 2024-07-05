@@ -8,7 +8,13 @@ import { hexOpacity } from "@/utils/hexOpacity"
 import { useState } from "react"
 import { TextInput, TouchableOpacity, View } from "react-native"
 
-const Intensity = () => {
+const Intensity = ({
+    value,
+    setValue
+} : {
+    value : string | undefined
+    setValue : React.Dispatch<React.SetStateAction<string | undefined>>
+}) => {
     const [intesities, setIntensities] = useState([
         {
             name : 'High',
@@ -25,6 +31,7 @@ const Intensity = () => {
     ])
 
     const onIntensityChange = (index : number) => {
+        setValue(intesities[index].name)
         haptics.medium()
         setIntensities(
             prev => 

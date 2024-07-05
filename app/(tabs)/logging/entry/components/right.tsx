@@ -1,13 +1,25 @@
 import Button from "@/components/button/button"
 import Profile from "@/components/profile/profile"
+import { retrieveLogs, retrieveLogsDraft, storeLogs } from "@/context/asyncStorage"
+import { DataContext } from "@/context/dataContext"
 import AppTypography from "@/styles/components/appTypography"
 import Flex from "@/styles/components/flex"
 import theme from "@/styles/theme"
 import { FontAwesome6, MaterialCommunityIcons, Octicons } from "@expo/vector-icons"
 import { router } from "expo-router"
+import { useContext } from "react"
 import { TouchableOpacity } from "react-native"
 
 const EntryRight = () => {
+    const {setItems} = useContext(DataContext)
+    const handleSave = async () => {
+        const logs = await retrieveLogsDraft()
+        await storeLogs(JSON.stringify(logs))
+        const log = await retrieveLogs()
+        console.log(log)
+        setItems()
+        router.navigate('logging')
+    }
     return (
         <Flex
             width={'auto'}
@@ -15,7 +27,7 @@ const EntryRight = () => {
             gap={4}
         >
             <Button
-                onPress={()=>router.navigate('logging')}
+                onPress={handleSave}
             >
                 Save
             </Button>

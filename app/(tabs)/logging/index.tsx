@@ -8,31 +8,25 @@ import Flex from '@/styles/components/flex';
 import AppTypography from '@/styles/components/appTypography';
 import { View } from 'react-native';
 import LogHistoryCard from './components/logHistoryCard';
-import { Fragment } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import DashedLine from 'react-native-dashed-line';
+import { DataContext } from '@/context/dataContext';
+import { removeLogs, retrieveLogs, storeLogs } from '@/context/asyncStorage';
 
 export default function HomeScreen() {
-  const options : optionsTypes[] = [
-      {
-          title : 'See All',
-          right : (
-              <Entypo
-                  name="chevron-right"
-                  color={theme.colors.text.secondary}
-                  style={{
-                      marginTop : 1
-                  }}
-              />
-          )
-      }
-  ]
+    const {logs} = useContext(DataContext)
+    const logsJSON = logs && JSON.parse(JSON.parse(logs))
+
+    useEffect(()=>{
+        console.log('logsJSON:', typeof logsJSON)
+    },[logs])
   return (
-    allLogs.length <= 0 ?
+    !logsJSON || logsJSON?.length <= 0 ?
     <Redirect href='nologs' />
     :
     <Safescroll>
         {
-            allLogs.map((item, index : number) => (
+            Array.isArray(logsJSON) ? (logsJSON).map((item, index : number) => (
                 <Fragment key={index}>
                     <LogHistoryCard
                         color={item.color}
@@ -48,7 +42,7 @@ export default function HomeScreen() {
                         }}
                     />
                 </Fragment>
-            ))
+            )) : <AppTypography>not array</AppTypography>
         }
     </Safescroll>
   );

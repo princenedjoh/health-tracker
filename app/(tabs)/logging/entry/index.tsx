@@ -8,8 +8,50 @@ import Distance from "./components/distance"
 import Speed from "./components/speed"
 import Reps from "./components/reps"
 import Notes from "./components/notes"
+import { useContext, useEffect, useState } from "react"
+import { removeLogs, removeLogsDraft, storeLogsDraft } from "@/context/asyncStorage"
+import { DataContext } from "@/context/dataContext"
 
 const LogEntry = () => {
+    const {logs} = useContext(DataContext)
+    const [duration, setDuration] = useState<string>()
+    const [intensity, setIntensity] = useState<string>()
+    const [distance, setDistance] = useState<string>()
+    const [speed, setSpeed] = useState<string>()
+    const [reps, setReps] = useState<string>()
+    const [notes, setNotes] = useState<string>()
+    const log = {
+        duration,
+        intensity,
+        distance,
+        speed,
+        reps,
+        notes
+    }
+    const definedLogs = log.duration || log.distance || log.intensity || log.notes || log.reps || log.speed
+    const setLogs = () => {
+        let allLogs = undefined
+        const logsJSON = logs && JSON.parse(JSON.parse(logs))
+        if(logsJSON && definedLogs){
+            allLogs = [...logsJSON, log]
+        } else if(definedLogs){
+            allLogs = [log]
+        }
+        console.log('\n allLogs:', allLogs, '\n log:', log, '\n logsJSON:', logsJSON, '\n defined:', definedLogs)
+        if(allLogs)
+            storeLogsDraft(JSON.stringify(allLogs))
+    }
+
+    useEffect(()=>{
+        setLogs()
+    },[
+        duration,
+        intensity,
+        distance,
+        speed,
+        reps,
+        notes
+    ])
     return (
         <Safescroll
             scrollStyle={{
@@ -28,12 +70,12 @@ const LogEntry = () => {
                 >
                     {new Date().toDateString()}
                 </AppTypography>
-                <Duration />
-                <Intensity />
-                <Distance />
-                <Speed />
-                <Reps />
-                <Notes />
+                <Duration value={duration} setValue={setDuration}/>
+                <Intensity value={intensity} setValue={setIntensity}/>
+                <Distance value={distance} setValue={setDistance}/>
+                <Speed value={speed} setValue={setSpeed}/>
+                <Reps value={reps} setValue={setReps}/>
+                <Notes value={notes} setValue={setNotes}/>
             </Flex>
         </Safescroll>
     )

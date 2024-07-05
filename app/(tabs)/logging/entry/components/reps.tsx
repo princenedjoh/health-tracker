@@ -5,7 +5,13 @@ import { TypographySize } from "@/styles/components/types"
 import theme from "@/styles/theme"
 import { TextInput } from "react-native"
 
-const Reps = () => {
+const Reps = ({
+    value,
+    setValue
+} : {
+    value : string | undefined
+    setValue : React.Dispatch<React.SetStateAction<string | undefined>>
+}) => {
     return (
         <EntryContainer
             title="Sets / Reps"
@@ -25,6 +31,8 @@ const Reps = () => {
                         display : 'flex',
                         flex : 1
                     }}
+                    value={value}
+                    onChangeText={setValue}
                 />
             </Flex>
         </EntryContainer>

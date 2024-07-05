@@ -7,62 +7,69 @@ import Flex from "@/styles/components/flex";
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import Top from "./top";
 import { LinearGradient } from "expo-linear-gradient";
+import { router } from "expo-router";
 
 const JournalCard = () => {
     return (
-        <Container
-            style={{
-                padding : 0,
-                height : 200,
-                position : 'relative',
-                overflow : 'hidden',
-            }}
+        <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={()=>router.navigate('journal/view journal')}
         >
-            <LinearGradient
-                colors={[`transparent`, `${theme.colors.bg.secondary}`]}
+            <Container
                 style={{
-                    width : '100%',
-                    height : '100%',
-                    position : 'absolute',
-                    top : 0,
-                    zIndex : 1
+                    padding : 0,
+                    height : 200,
+                    position : 'relative',
+                    overflow : 'hidden',
                 }}
             >
+                <LinearGradient
+                    colors={[`transparent`, `${theme.colors.bg.secondary}`]}
+                    style={{
+                        width : '100%',
+                        height : '100%',
+                        position : 'absolute',
+                        top : 0,
+                        zIndex : 1
+                    }}
+                >
 
-            </LinearGradient>
-            <Top />
-            <Flex
-                paddingHorizontal={10}
-                paddingVertical={10}
-            >
-                <AppTypography
-                    lineHeight={22}
-                    textColor={theme.colors.text.primary}
+                </LinearGradient>
+                <Top />
+                <Flex
+                    paddingHorizontal={10}
+                    paddingVertical={10}
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Maxime mollitia,molestiae quas vel sint commodi 
-                    repudiandae consequuntur voluptatum laborum
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Maxime mollitia,molestiae quas vel sint commodi 
-                    repudiandae consequuntur voluptatum laborum
-                </AppTypography>
-            </Flex>
-            <TouchableOpacity
-                style={{
-                    position : 'absolute',
-                    bottom : 10,
-                    left : 10,
-                    zIndex : 1
-                }}
-            >
-                <AppTypography
-                    textColor={theme.colors.text.primary}
-                    bold={TypographyBold.md}
+                    <AppTypography
+                        lineHeight={22}
+                        textColor={theme.colors.text.primary}
+                    >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Maxime mollitia,molestiae quas vel sint commodi 
+                        repudiandae consequuntur voluptatum laborum
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Maxime mollitia,molestiae quas vel sint commodi 
+                        repudiandae consequuntur voluptatum laborum
+                    </AppTypography>
+                </Flex>
+                <TouchableOpacity
+                    style={{
+                        position : 'absolute',
+                        bottom : 10,
+                        left : 10,
+                        zIndex : 1
+                    }}
+                    onPress={()=>router.navigate('journal/view journal')}
                 >
-                    See more...
-                </AppTypography>
-            </TouchableOpacity>
-        </Container>
+                    <AppTypography
+                        textColor={theme.colors.text.primary}
+                        bold={TypographyBold.md}
+                    >
+                        See more...
+                    </AppTypography>
+                </TouchableOpacity>
+            </Container>
+        </TouchableOpacity>
     )
 }
 export default JournalCard

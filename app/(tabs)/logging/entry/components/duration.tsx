@@ -3,7 +3,13 @@ import Flex from "@/styles/components/flex"
 import theme from "@/styles/theme"
 import { TextInput } from "react-native"
 
-const Duration = () => {
+const Duration = ({
+    value,
+    setValue
+} : {
+    value : string | undefined
+    setValue : React.Dispatch<React.SetStateAction<string | undefined>>
+}) => {
     return (
         <EntryContainer>
             <Flex
@@ -20,6 +26,8 @@ const Duration = () => {
                         display : 'flex',
                         flex : 1
                     }}
+                    value={value}
+                    onChangeText={setValue}
                 />
             </Flex>
         </EntryContainer>

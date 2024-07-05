@@ -5,7 +5,13 @@ import { TypographySize } from "@/styles/components/types"
 import theme from "@/styles/theme"
 import { TextInput } from "react-native"
 
-const Distance = () => {
+const Distance = ({
+    value,
+    setValue
+} : {
+    value : string | undefined
+    setValue : React.Dispatch<React.SetStateAction<string | undefined>>
+}) => {
     return (
         <EntryContainer
             title="Distance"
@@ -28,6 +34,8 @@ const Distance = () => {
                             display : 'flex',
                             flex : 1
                         }}
+                        value={value}
+                        onChangeText={setValue}
                     />
                 </Flex>
                 <AppTypography

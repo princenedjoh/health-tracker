@@ -4,6 +4,8 @@ import { Octicons } from "@expo/vector-icons"
 import { Stack } from "expo-router"
 import Profile from "@/components/profile/profile"
 import Right from "./components/right"
+import ViewJournalRight from "./view journal/components/right"
+import EntryRight from "./entry/components/right"
 
 const Layout = () => {
     return (
@@ -59,7 +61,23 @@ const Layout = () => {
                     headerStyle : {
                       backgroundColor : `${theme.colors.bg.primary}${hexOpacity(50)}`
                     },
-                    headerRight : ()=><Right />,
+                    headerRight : ()=><EntryRight />,
+                }}
+            />
+            <Stack.Screen 
+                name="view journal"
+                options={{
+                    title : 'View Journal',
+                    headerBlurEffect : 'regular',
+                    headerTransparent : true,
+                    headerLargeTitle : true,
+                    headerLargeTitleStyle : {
+                        fontSize : 25
+                    },
+                    headerStyle : {
+                      backgroundColor : `${theme.colors.bg.primary}${hexOpacity(50)}`
+                    },
+                    headerRight : ()=><ViewJournalRight />,
                 }}
             />
         </Stack>

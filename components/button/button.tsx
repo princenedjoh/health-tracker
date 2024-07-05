@@ -26,7 +26,7 @@ const Button = ({
     style? : StyleProp<ViewStyle>
 }) => {
     const handlePress = () => {
-        haptics.heavy()
+        haptics.light()
         onPress && onPress()
     }
 
