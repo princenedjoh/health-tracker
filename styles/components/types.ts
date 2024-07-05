@@ -7,6 +7,7 @@ export interface flexProps {
     direction ? : 'column' | 'row'
     gap ? : number
     paddingLeft? : DimensionValue
+    padding? : DimensionValue
     paddingRight? : DimensionValue
     paddingBottom? : DimensionValue
     paddingTop? : DimensionValue

@@ -3,6 +3,7 @@ import AppTypography from "../../styles/components/appTypography"
 import theme from "../../styles/theme"
 import { ReactNode } from "react"
 import { TypographyBold } from "../../styles/components/types"
+import haptics from '@/utils/haptics';
 
 const Button = ({
     children,
@@ -24,9 +25,14 @@ const Button = ({
     }
     style? : StyleProp<ViewStyle>
 }) => {
+    const handlePress = () => {
+        haptics.heavy()
+        onPress && onPress()
+    }
+
     return (
         <TouchableOpacity
-            onPress={onPress}
+            onPress={handlePress}
             style={[{
                 borderRadius : rounded ?? 10,
                 backgroundColor : theme.colors.bg.secondary,

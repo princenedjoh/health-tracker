@@ -19,7 +19,7 @@ const SuggestionCard = ({
         >
             <Container
                 style={{
-                    backgroundColor : backgroundColor
+                    backgroundColor : backgroundColor,
                 }}
             >
                 <Flex

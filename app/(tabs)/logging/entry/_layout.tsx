@@ -9,23 +9,21 @@ const Layout = () => {
     return (
         <Stack
             screenOptions={{
-                headerShown : false
+                presentation : 'formSheet'
             }}
         >
             <Stack.Screen 
                 name="index"
                 options={{
-                    title : 'Journals',
+                    title : 'Log Entry',
                     headerBlurEffect : 'regular',
                     headerTransparent : true,
-                    headerShown : true,
-                    headerBackVisible : true,
-                    headerLargeTitle : true,
+                    presentation : 'formSheet',
                     headerLargeTitleStyle : {
                         fontSize : 25
                     },
                     headerStyle : {
-                      backgroundColor : `${theme.colors.bg.primary}${hexOpacity(50)}`
+                      backgroundColor : `${theme.colors.bg.primary}${hexOpacity(30)}`
                     },
                     headerRight : ()=><Right />,
                 }}

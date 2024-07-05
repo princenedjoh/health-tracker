@@ -3,6 +3,7 @@ import Profile from "@/components/profile/profile"
 import Flex from "@/styles/components/flex"
 import theme from "@/styles/theme"
 import { Octicons } from "@expo/vector-icons"
+import { router } from "expo-router"
 import { TouchableOpacity } from "react-native"
 
 const Right = () => {
@@ -15,7 +16,9 @@ const Right = () => {
             <Button>
                 Add +
             </Button>
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={()=>router.navigate('logging')}
+            >
                 <Octicons 
                     name="history" 
                     color={theme.colors.text.secondary}

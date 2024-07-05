@@ -15,7 +15,7 @@ const JournalCard = () => {
                 padding : 0,
                 height : 200,
                 position : 'relative',
-                overflow : 'hidden'
+                overflow : 'hidden',
             }}
         >
             <LinearGradient

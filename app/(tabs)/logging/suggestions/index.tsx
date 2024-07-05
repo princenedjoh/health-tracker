@@ -5,8 +5,6 @@ import theme from '@/styles/theme';
 import Segment from './components/segment';
 import Group from '@/components/settings/group';
 import { optionsTypes } from '@/components/settings/option';
-import { allLogs } from './components/logs';
-import { Redirect } from 'expo-router';
 
 export default function HomeScreen() {
   const options : optionsTypes[] = [

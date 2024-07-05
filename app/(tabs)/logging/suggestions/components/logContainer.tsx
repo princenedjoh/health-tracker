@@ -8,6 +8,7 @@ import theme from "@/styles/theme"
 import { hexOpacity } from "@/utils/hexOpacity"
 import { FontAwesome, FontAwesome5, Ionicons } from "@expo/vector-icons"
 import { LinearGradient } from "expo-linear-gradient"
+import { router } from "expo-router"
 import { View } from "react-native"
 
 const LogContainer = ({
@@ -122,6 +123,7 @@ const LogContainer = ({
                         style={{
                             backgroundColor : `#007AFF${hexOpacity(15)}`
                         }}
+                        onPress={()=>router.push('logging/entry')}
                     >
                         New Entry +
                     </Button>
