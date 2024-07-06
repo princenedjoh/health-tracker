@@ -24,6 +24,14 @@ export const storeJournals = async (journals : string) => {
     }
 };
 
+export const storeJournalsDraft = async (journals : string) => {
+  try {
+    await AsyncStorage.setItem('journalsDraft', journals);
+  } catch (error) {
+    console.error('Error storing journals draft:', error);
+  }
+};
+
 export const retrieveLogs = async () => {
   try {
     const logs = await AsyncStorage.getItem('logs');
@@ -49,6 +57,15 @@ export const retrieveJournals = async () => {
     } catch (error) {
       console.error('Error retrieving journals:', error);
     }
+};
+
+export const retrieveJournalsDraft = async () => {
+  try {
+    const journals = await AsyncStorage.getItem('journalsDraft');
+    return journals ?? undefined;
+  } catch (error) {
+    console.error('Error retrieving journals draft:', error);
+  }
 };
 
 export const removeLogs = async () => {

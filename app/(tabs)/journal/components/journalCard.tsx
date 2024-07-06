@@ -8,8 +8,15 @@ import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import Top from "./top";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
+import { useEffect } from "react";
 
-const JournalCard = () => {
+const JournalCard = ({
+    data,
+    index
+} : {
+    data : any,
+    index : number
+}) => {
     return (
         <TouchableOpacity
             activeOpacity={0.7}
@@ -35,7 +42,10 @@ const JournalCard = () => {
                 >
 
                 </LinearGradient>
-                <Top />
+                <Top 
+                    date={data.date}
+                    index={index}
+                />
                 <Flex
                     paddingHorizontal={10}
                     paddingVertical={10}
@@ -44,12 +54,7 @@ const JournalCard = () => {
                         lineHeight={22}
                         textColor={theme.colors.text.primary}
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Maxime mollitia,molestiae quas vel sint commodi 
-                        repudiandae consequuntur voluptatum laborum
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Maxime mollitia,molestiae quas vel sint commodi 
-                        repudiandae consequuntur voluptatum laborum
+                        {data.content}
                     </AppTypography>
                 </Flex>
                 <TouchableOpacity

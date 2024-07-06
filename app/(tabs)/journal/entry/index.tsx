@@ -7,8 +7,32 @@ import { FontAwesome5 } from "@expo/vector-icons"
 import { TextInput, View } from "react-native"
 import DropShadow from "react-native-drop-shadow"
 import HoverShadowContainer from "./components/shadow"
+import { useContext, useEffect, useState } from "react"
+import { DataContext } from "@/context/dataContext"
+import { storeJournalsDraft } from "@/context/asyncStorage"
 
 const Entry = () => {
+    const [content, setContent] = useState<string>()
+    const {journals} = useContext(DataContext)
+    const journal = {
+        content,
+        date : new Date()
+    }
+    const definedJournals = journal.content
+    const setJournals = async () => {
+        let allJournals = undefined
+        if(journals && Array.isArray(journals) && definedJournals){
+            allJournals = [...journals, journal]
+        } else if(definedJournals){
+            allJournals = [journal]
+        }
+        if(allJournals)
+            await storeJournalsDraft(JSON.stringify(allJournals))
+    }
+
+    useEffect(()=>{
+        setJournals()
+    },[content])
     return (
         <Safescroll>
             <Flex
@@ -40,6 +64,8 @@ const Entry = () => {
                             display : 'flex',
                             flex : 1
                         }}
+                        value={content}
+                        onChangeText={setContent}
                     />
                 </Container>
             </Flex>

@@ -31,17 +31,11 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
     try {
       let retrievedLogs = await retrieveLogs();
       let retrievedJournals = await retrieveJournals();
-      console.log('settingsnow')
-      console.log('retr logs:', retrievedLogs)
       if(retrievedLogs){
-        console.log('new rewsir')
-        console.log('typeof log', typeof retrievedLogs)
         let logsCopy = retrievedLogs
         while (typeof logsCopy === 'string'){
-          console.log('whilte operation')
           logsCopy = JSON.parse(logsCopy)
         }
-        console.log('typeof logssCopy:', typeof logsCopy)
         setLogs(logsCopy);
       }
       if(retrievedJournals){

@@ -13,11 +13,9 @@ export default function HomeScreen() {
   const {setItems, logs} = useContext(DataContext)
   const getlogs = async () => {
     await setItems();
-    console.log(typeof logs)
   }
 
   useEffect(() => {
-    console.log('items')
     getlogs()
   }, []);
 

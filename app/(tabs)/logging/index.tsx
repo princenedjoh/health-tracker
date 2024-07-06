@@ -15,11 +15,7 @@ import { removeLogs, retrieveLogs, storeLogs } from '@/context/asyncStorage';
 
 export default function HomeScreen() {
     const {logs} = useContext(DataContext)
-    console.log(typeof logs, logs)
     
-    useEffect(()=>{
-        console.log('type:', typeof logs)
-    },[])
   return (
     !logs || !Array.isArray(logs) || logs?.length <= 0 ?
     <Redirect href='nologs' />

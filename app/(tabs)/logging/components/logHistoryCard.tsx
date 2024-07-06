@@ -69,7 +69,6 @@ const LogHistoryCard = ({
     const [deleteindex, setDeleteIndex] = useState<number>()
     const handleDelete = () => {
         const updatedLogs = logs && Array.isArray(logs) && logs.filter((item : any, i : number) => deleteindex !== i)
-        console.log(typeof updatedLogs, updatedLogs)
         storeLogs(JSON.stringify(updatedLogs))
         setItems()
     }

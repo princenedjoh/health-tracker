@@ -1,18 +1,35 @@
 import Confirmation from "@/components/modal/confirmation"
+import { storeJournals } from "@/context/asyncStorage"
+import { DataContext } from "@/context/dataContext"
 import AppTypography from "@/styles/components/appTypography"
 import Flex from "@/styles/components/flex"
 import { TypographyBold } from "@/styles/components/types"
 import theme from "@/styles/theme"
+import { getRelativeTime } from "@/utils/getDate"
 import haptics from "@/utils/haptics"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { router } from "expo-router"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { TouchableOpacity, View } from "react-native"
 
-const Top = () => {
+const Top = ({
+    date,
+    index
+} : {
+    date : Date,
+    index : number
+}) => {
+    const {journals, setItems} = useContext(DataContext)
     const [showConfirmation, setShowConfirmation] = useState(false)
-    const handleConfirm = () => {
-        
+    const [deleteIndex, setDeleteIndex] = useState<number>()
+    const handleDeleteButtonPress = (index : number) => {
+        setShowConfirmation(true)
+        setDeleteIndex(index)
+    }
+    const handleConfirm = async () => {
+        const updatedJournals = journals && Array.isArray(journals) && journals.filter((item, i : number) => i !== index)
+        updatedJournals && await storeJournals(JSON.stringify(updatedJournals))
+        await setItems()
     }
     return (
         <>
@@ -44,7 +61,7 @@ const Top = () => {
                     <AppTypography
                         bold={TypographyBold.md}
                     >
-                        July 3, 2024 at 4:20 AM
+                        {getRelativeTime(date)}
                     </AppTypography>
                     <Flex
                         gap={10}
@@ -54,7 +71,7 @@ const Top = () => {
                         <TouchableOpacity
                             onPress={()=>{
                                 haptics.medium()
-                                return setShowConfirmation(true)
+                                return handleDeleteButtonPress(index)
                             }}
                         >
                             <MaterialCommunityIcons

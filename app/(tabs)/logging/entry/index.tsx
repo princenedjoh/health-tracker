@@ -36,7 +36,6 @@ const LogEntry = () => {
         } else if(definedLogs){
             allLogs = [log]
         }
-        console.log('\n allLogs:', allLogs, '\n log:', log, '\n logs:', logs, '\n defined:', definedLogs)
         if(allLogs)
             storeLogsDraft(JSON.stringify(allLogs))
     }

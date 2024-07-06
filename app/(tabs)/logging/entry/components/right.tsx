@@ -16,7 +16,6 @@ const EntryRight = () => {
         const logs = await retrieveLogsDraft()
         logs &&  await storeLogs(logs)
         const log = await retrieveLogs()
-        console.log('save:', log)
         await setItems()
         router.navigate('logging')
     }
