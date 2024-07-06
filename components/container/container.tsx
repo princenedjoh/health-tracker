@@ -16,9 +16,7 @@ const Container = ({
     title? : string | ReactNode
 }) => {
     return (
-        <Flex
-            direction="column"
-        >
+        <>
             {
                 title &&
                 <Flex
@@ -44,7 +42,7 @@ const Container = ({
             >
                 {children}
             </View>
-        </Flex>
+        </>
     )
 }
 export default Container

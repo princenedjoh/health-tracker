@@ -31,13 +31,12 @@ const LogEntry = () => {
     const definedLogs = log.duration || log.distance || log.intensity || log.notes || log.reps || log.speed
     const setLogs = () => {
         let allLogs = undefined
-        const logsJSON = logs && JSON.parse(JSON.parse(logs))
-        if(logsJSON && definedLogs){
-            allLogs = [...logsJSON, log]
+        if(logs && Array.isArray(logs) && definedLogs){
+            allLogs = [...logs, log]
         } else if(definedLogs){
             allLogs = [log]
         }
-        console.log('\n allLogs:', allLogs, '\n log:', log, '\n logsJSON:', logsJSON, '\n defined:', definedLogs)
+        console.log('\n allLogs:', allLogs, '\n log:', log, '\n logs:', logs, '\n defined:', definedLogs)
         if(allLogs)
             storeLogsDraft(JSON.stringify(allLogs))
     }

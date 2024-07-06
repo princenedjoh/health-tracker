@@ -14,10 +14,10 @@ const EntryRight = () => {
     const {setItems} = useContext(DataContext)
     const handleSave = async () => {
         const logs = await retrieveLogsDraft()
-        await storeLogs(JSON.stringify(logs))
+        logs &&  await storeLogs(logs)
         const log = await retrieveLogs()
-        console.log(log)
-        setItems()
+        console.log('save:', log)
+        await setItems()
         router.navigate('logging')
     }
     return (

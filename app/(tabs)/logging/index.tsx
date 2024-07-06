@@ -15,21 +15,27 @@ import { removeLogs, retrieveLogs, storeLogs } from '@/context/asyncStorage';
 
 export default function HomeScreen() {
     const {logs} = useContext(DataContext)
-    const logsJSON = logs && JSON.parse(JSON.parse(logs))
-
+    console.log(typeof logs, logs)
+    
     useEffect(()=>{
-        console.log('logsJSON:', typeof logsJSON)
-    },[logs])
+        console.log('type:', typeof logs)
+    },[])
   return (
-    !logsJSON || logsJSON?.length <= 0 ?
+    !logs || !Array.isArray(logs) || logs?.length <= 0 ?
     <Redirect href='nologs' />
     :
     <Safescroll>
         {
-            Array.isArray(logsJSON) ? (logsJSON).map((item, index : number) => (
+            Array.isArray(logs) ? (logs).reverse().map((item, index : number) => (
                 <Fragment key={index}>
-                    <LogHistoryCard
-                        color={item.color}
+                    <LogHistoryCard 
+                        distance={item.distance}
+                        duration={item.duration}
+                        intensity={item.intensity}
+                        notes={item.notes}
+                        reps={item.reps}
+                        speed={item.speed}
+                        index={index}
                     />
                     <DashedLine
                         dashLength={5}

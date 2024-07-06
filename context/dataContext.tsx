@@ -2,16 +2,16 @@ import { createContext, useEffect, useState } from "react";
 import { retrieveJournals, retrieveLogs } from "./asyncStorage";
 
 interface DataContextType {
-  logs: string | undefined;
-  journals: string | undefined;
+  logs: object | undefined;
+  journals: object | undefined;
   setItems: () => void;
   isLoading: boolean;
   error?: Error;
 }
 
 export const DataContext = createContext<DataContextType>({
-  logs: '',
-  journals: '',
+  logs: [],
+  journals: [],
   setItems: () => {},
   isLoading: false, //
   error: undefined,
@@ -20,20 +20,37 @@ export const DataContext = createContext<DataContextType>({
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [logs, setLogs] = useState<string | undefined>();
-  const [journals, setJournals] = useState<string | undefined>();
+  const [logs, setLogs] = useState<object | undefined>();
+  const [journals, setJournals] = useState<object | undefined>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | undefined>(undefined);
 
   const setItems = async () => {
     setIsLoading(true);
     setError(undefined);
-
     try {
-      const retrievedLogs = await retrieveLogs();
-      const retrievedJournals = await retrieveJournals();
-      setLogs(retrievedLogs);
-      setJournals(retrievedJournals);
+      let retrievedLogs = await retrieveLogs();
+      let retrievedJournals = await retrieveJournals();
+      console.log('settingsnow')
+      console.log('retr logs:', retrievedLogs)
+      if(retrievedLogs){
+        console.log('new rewsir')
+        console.log('typeof log', typeof retrievedLogs)
+        let logsCopy = retrievedLogs
+        while (typeof logsCopy === 'string'){
+          console.log('whilte operation')
+          logsCopy = JSON.parse(logsCopy)
+        }
+        console.log('typeof logssCopy:', typeof logsCopy)
+        setLogs(logsCopy);
+      }
+      if(retrievedJournals){
+        let journalsCopy = retrievedJournals
+        while (typeof journalsCopy === 'string'){
+          journalsCopy = JSON.parse(journalsCopy)
+        }
+        setJournals(journalsCopy);
+      }
     } catch (err : any) {
       setError(err);
       console.error('Error retrieving data:', err);
@@ -41,10 +58,6 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    setItems();
-  }, []);
 
   return (
     <DataContext.Provider
