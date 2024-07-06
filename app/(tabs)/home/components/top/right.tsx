@@ -11,7 +11,17 @@ import { LinearGradient } from "expo-linear-gradient"
 import { router } from "expo-router"
 import { View } from "react-native"
 
-const Right = () => {
+const Right = ({
+    label,
+    icon,
+    title,
+    subtitle
+} : {
+    label? : string,
+    icon? : string,
+    title? : string,
+    subtitle? : string
+}) => {
     return (
         <LinearGradient
             colors={[`${theme.colors.bg.primary}`, `#07181c`]}
@@ -31,14 +41,17 @@ const Right = () => {
                     zIndex : -1
                 }}
             >
-                <FontAwesome5
-                    name="running"
-                    color={`${theme.colors.text.tetiary}${hexOpacity(10)}`}
-                    size={100}
-                    style={{
-                        marginTop : 1,
-                    }}
-                />
+                {
+                    icon &&
+                    <FontAwesome5
+                        name="running"
+                        color={`${theme.colors.text.tetiary}${hexOpacity(10)}`}
+                        size={100}
+                        style={{
+                            marginTop : 1,
+                        }}
+                    />
+                }
             </View>
             <Flex
                 direction="column"
@@ -62,7 +75,7 @@ const Right = () => {
                         <AppTypography
                             bold={TypographyBold.md}
                         >
-                            Running
+                            {label ?? 'Running'}
                         </AppTypography>
                     </Flex>
                     <Flex
@@ -72,12 +85,12 @@ const Right = () => {
                         <Title
                             size={TypographySize.lg}
                         >
-                            500 km
+                            {title ?? '500 km'}
                         </Title>
                         <AppTypography
                             textColor={theme.colors.text.tetiary}
                         >
-                            20 m/s
+                            {subtitle ?? '20 m/s'}
                         </AppTypography>
                     </Flex>
                 </Flex>

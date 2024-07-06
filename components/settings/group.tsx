@@ -16,7 +16,8 @@ const Group = ({
     description,
     paddingHorizontal,
     paddingLeft,
-    paddingVertical
+    paddingVertical,
+    numberOfLinesOnDescription
 } : {
     style? : StyleProp<ViewStyle>,
     options? : optionsTypes[],
@@ -26,6 +27,7 @@ const Group = ({
     paddingHorizontal? : number,
     paddingLeft? : number,
     paddingVertical? : number
+    numberOfLinesOnDescription? : number
 }) => {
     const [ioptions, setOptions] = useState([1,2,3])
 
@@ -98,6 +100,7 @@ const Group = ({
                     <AppTypography
                         bold={TypographyBold.sm2}
                         textColor={theme.colors.text.tetiary}
+                        numberOfLines={numberOfLinesOnDescription}
                     >
                         {description}
                     </AppTypography>

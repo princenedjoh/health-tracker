@@ -15,7 +15,11 @@ const Top = () => {
                 gap={10}
             >
                 <Right />
-                <Right />
+                <Right 
+                    label="Walking"
+                    title="200 km"
+                    subtitle="3 m/s"
+                />
             </Flex>
         </Flex>
     )

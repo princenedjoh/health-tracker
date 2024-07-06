@@ -78,10 +78,10 @@ const Left = () => {
                     direction="column"
                     gap={10}
                 >
-                    <AppTypography>
-                        molestiae quas vel sint 
-                        consequuntur kdsj numquam blanditiis ajd 
-                        fugiat iusto fuga roe
+                    <AppTypography
+                        numberOfLines={4}
+                    >
+                        Monitor cycles of contraction and relaxation that pumps blood through the body. It consists of two phases: diastole and systole
                     </AppTypography>
                     <Button
                         paddingVertical={12}
