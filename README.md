@@ -1,5 +1,12 @@
 # Health Monitoring Solution for Ghanaians
 
+## Example Images
+
+<p align="center">
+  <img src="assets/readme/health-tracker-app.png" alt="health tracker app" width="300"/>
+</p>
+
+
 ## Overview
 
 This project is a comprehensive health monitoring solution designed to enhance the health and well-being of Ghanaians. Built using React Native and Expo, the application includes features such as an activity tracker, journaling tools, and exercise and workout logging. These features aim to help users monitor their health, adopt healthier lifestyles, and make informed decisions about their well-being.
