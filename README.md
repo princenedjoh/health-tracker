@@ -3,7 +3,7 @@
 ## Example Images
 
 <p align="center">
-  <img src="assets/readme/health-tracker-app.png" alt="health tracker app" width="300"/>
+  <img src="assets/readme/health-tracker-app.jpg" alt="health tracker app" width="300"/>
 </p>
 
 
