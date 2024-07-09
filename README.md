@@ -103,6 +103,6 @@ We welcome contributions from the community. To contribute:
 
 ## Contact
 
-For any questions or feedback, please contact me at [princenedjoh5@gmail.com].
+For any questions or feedback, please contact me at princenedjoh5@gmail.com.
 
 ---
