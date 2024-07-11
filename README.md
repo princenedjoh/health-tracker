@@ -17,7 +17,7 @@ https://www.figma.com/design/eY8WT8PGe0aURlhKfjgaiL/Health-tracker?node-id=0-1&t
 ## Features
 
 ### Activity Tracker 
-by [Prince-Nedjoh]
+by Prince-Nedjoh
 
 The activity tracker monitors users' daily physical activities, including steps taken, distance covered, and calories burned. 
 
